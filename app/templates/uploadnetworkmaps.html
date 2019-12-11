@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+  <center>
+    <div class="content-section">
+      <div class="media">
+        <div class="media-body">
+          <h1>Upload Network Maps Here!</h1>
+          <span class='far fa-file-pdf' style='font-size:48px;color:#5CB85C'></span>
+          <h4>PDF Files only please</h4>
+            <form method="POST" action="/uploadconfirmation/networkmaps" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for"inputFile"></label>
+                    <input type="file" name="inputFile">
+                    <label for"operator"></label>
+                    <input type="text" class="form-control" placeholder="Operator" name="operator" autocomplete="off">
+                </div>
+              <button type="submit" class="btn btn-success">Upload <span class="fas fa-arrow-circle-up"></span></button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </center>
+</html>
+{% endblock %}

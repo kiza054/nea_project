@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+{% block styles %}
+  {{super()}}
+  <script type="text/javascript" src="{{ url_for('static', filename='javascript/search_filter_timetables.js') }}"></script>
+{% endblock %}
+  <center>
+    <div class="content-section">
+      <div class="media">
+        <div class="media-body">
+          <input class="form-control mr-sm-2" type="text" id="input01"
+            onkeyup="search_timetables()" placeholder="Find your timetable by searching the operator or service number...">
+          <table style="100%" class="table table-borderless table-hover table-condensed" id="table01">
+            <tr>
+              <th scope="col">Filename</th>
+              <th scope="col">Service Number</th>
+              <th scope="col">Service Operator</th>
+              <th scope="col">Download Link</th>
+            </tr>
+            {% for timetable in timetables %}
+            <tr>
+              <td>{{ timetable.name }}</td>
+              <td>{{ timetable.service_number }}</td>
+              <td>{{ timetable.operator }}</td>
+              <td><a class="btn btn-success btn-sm" href="{{ url_for('file_handlers.download', filename=timetable.name) }}"
+                            role="button">Download <span class="fas fa-file-download"></span></a></td>
+            {% endfor %}
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </center>
+</html>
+{% endblock %}

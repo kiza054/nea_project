@@ -1,0 +1,32 @@
+#timetables = Timetables.query.all()
+
+
+{% block styles %}
+  {{super()}}
+  <script type="text/javascript" src="{{ url_for('static', filename='javascript/search_filter.js') }}"></script>
+{% endblock %}
+
+<input class="form-control mr-sm-2" type="text" id="input01" onkeyup="search()" placeholder="Find your timetable by searching the service number...">
+
+{% block styles %}
+  {{super()}}
+  <script type="text/javascript" src="{{ url_for('static', filename='javascript/search_filter_2.js') }}"></script>
+{% endblock %}
+
+<input class="form-control mr-sm-2" type="text" id="input01" onkeyup="search()" placeholder="Find your timetable by searching for the operator...">
+
+#### bus_stops.html ####
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+<th scope="col">x</th>
+<th scope="col">y</th>
+<th scope="col">z</th>
+<th scope="col">Photo (Front)</th>
+<th scope="col">Photo (Side)</th>
+
+<td>{{ s.x }}</td>
+<td>{{ s.y }}</td>
+<td>{{ s.z }}</td>
+<td>{{ s.photo_front }}</td>
+<td>{{ s.photo_side }}</td>

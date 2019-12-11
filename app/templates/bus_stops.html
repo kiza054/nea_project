@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% block styles %}
+    {{super()}}
+    <script type="text/javascript" src="{{ url_for('static', filename='javascript/search_filter_bus_stops.js') }}"></script>
+{% endblock %}
+<center>
+  <div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <input class="form-control py-2 border-left-0 border" type="text" id="input01"
+            onkeyup="search_stops()" placeholder="Find by searching for the name, location or code (last 5 digits only) of the stop...">
+        <table class="table table-borderless table-hover table-condensed" id="table01">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Stop ID</th>
+            <th scope="col">Stop Name</th>
+            <th scope="col">Location</th>
+          </tr>
+            {% for s in stops %}
+          <tr>
+            <td>{{ s.id }}</td>
+            <td>{{ s.stop_id }}</td>
+            <td>{{ s.stop_name }}</td>
+            <td>{{ s.town }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</center>
+{% endblock %}

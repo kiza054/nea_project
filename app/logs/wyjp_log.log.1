@@ -1,0 +1,80 @@
+2019-11-11 17:28:00,169 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 17:28:01,682 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 17:28:15,078 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 17:28:16,007 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 17:30:26,972 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 17:30:27,897 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 17:35:30,974 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 17:35:31,909 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 18:08:02,372 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 18:08:03,309 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 19:00:43,989 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 19:01:15,867 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 19:44:47,376 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 19:56:18,376 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-11 20:05:22,902 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-12 11:26:51,690 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-12 11:27:51,229 ERROR: Exception on /auth/login [POST] [in /home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/nea_project/app/auth/routes.py", line 12, in login
+    return redirect(url_for('home'))
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'home'. Did you mean 'main.home' instead?
+2019-11-12 11:28:27,977 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-12 11:28:33,716 ERROR: Exception on /auth/login [POST] [in /home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/nea_project/app/auth/routes.py", line 12, in login
+    return redirect(url_for('home'))
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "/home/ubuntu/.local/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'home'. Did you mean 'main.home' instead?
+2019-11-12 11:28:59,598 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-12 11:41:59,669 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-15 13:59:11,791 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-15 14:08:04,088 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-15 14:09:56,807 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-15 14:11:10,612 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-15 14:13:06,785 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-15 14:42:13,799 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]
+2019-11-15 14:43:21,878 INFO: WYJP startup [in /home/ubuntu/nea_project/app/__init__.py:59]

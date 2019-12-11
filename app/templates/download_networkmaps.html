@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+{% block styles %}
+  {{super()}}
+  <script type="text/javascript" src="{{ url_for('static', filename='javascript/search_filter_network_maps.js') }}"></script>
+{% endblock %}
+  <center>
+    <div class="content-section">
+      <div class="media">
+        <div class="media-body">
+          <input class="form-control mr-sm-2" type="text" id="input01"
+            onkeyup="search_network_maps()" placeholder="Find your timetable by searching the operator...">
+          <table style="100%" class="table table-borderless table-hover table-condensed" id="table01">
+            <tr>
+              <th scope="col">Filename</th>
+              <th scope="col">Operator</th>
+              <th scope="col">Download Link</th>
+            </tr>
+            {% for operator in operators %}
+            <tr>
+              <td>{{ operator.name }}</td>
+              <td>{{ operator.operator }}</td>
+              <td><a class="btn btn-success btn-sm" href="{{ url_for('file_handlers.download_networkmaps', filename=operator.name) }}"
+                              role="button">Download <span class="fas fa-file-download"></span></a></td>
+            {% endfor %}
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </center>
+</html>
+{% endblock %}

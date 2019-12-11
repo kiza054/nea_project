@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<center>
+  <div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <center><h2>The stop you searched for is: {{ name }} (450{{ stop_number_str }}) - {{ locality }}</h2></center>
+        <br>
+        <form method="POST" action="/live_timetable" class="form-inline my-2 my-lg-0" id="navBarSearchForm" autocomplete="off">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search for Stop Number (Last 5 digits fount on Stop)" name="stop_number">
+          <button class="btn btn-success">Search</button>
+        </form>
+        <table class="table">
+          <table class="table table-borderless table-hover table-condensed">
+        	<thead>
+              <tr class="table-info">
+                  <th style="text-align: center;">Stop Name</th>
+                  <th style="text-align: center;">Stop Location <!--[Coordinates]--></th>
+                  <th style="text-align: center;">Line Number</th>
+                  <th style="text-align: center;">Direction (In/Outbound)</th>
+                  <th style="text-align: center;">Departure Time</th>
+                  <th style="text-align: center;">Operator (Code)</th>
+              </tr>
+        	</thead>
+        	<tbody>
+        	  {% for item in items %}
+        	  <tr class="table-info">
+                <td align="center"><p> {{ name }} </p></td>
+                <td align="center"><p> {{ locality }} <!--{{ location }}--></p></td>
+                <td align="center"><p> {{ item.line_name }} </p></td>
+                <td align="center"><p> {{ item.direction }} ({{ item.dir }})</p></td>
+                <td align="center"><p> {{ item.aimed_departure_time }} </p></td>
+                <td align="center"><p> {{ item.operator_name }} ({{ item.operator }}) </p></td>
+        		</tr>
+        	  {% endfor %}
+        	</tbody>
+        </table>
+        <p class="text-secondary"></p>
+      </div>
+    </div>
+  </div>
+</center>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<center>
+  <div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <div class="page-wrap d-flex flex-row align-items-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-12 text-center">
+                <h1 class="display-1 d-block">404</h1>
+                <li class="list-group-item list-group-item-light">
+                  <h4>Bus stop either does not exist or there are no buses departing from this stop at this time</h4>
+                  </br>
+                  <h4>Please search for another Bus Stop by using the search bar below or, <a link href="/">Press this link to return to the homepage</a></h4>
+                  </br>
+                  <form method="POST" action="/live_timetable" class="form-inline my-2 my-lg-0" id="navBarSearchForm" autocomplete="off">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search for Stop Number (Last 5 digits fount on Stop)" name="stop_number">
+                    <button class="btn btn-success">Search</button>
+                  </form>
+                </li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</center>
+{% endblock %}

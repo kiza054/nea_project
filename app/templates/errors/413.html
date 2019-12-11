@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<center>
+  <div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <div class="page-wrap d-flex flex-row align-items-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <h1 class="display-1 d-block">413</h1>
+                        <div class="mb-4 lead">The file you tried to upload was too large, please upload smaller size files.</div>
+                        <a href="{{ url_for('home') }}" class="btn btn-link">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</center>
+{% endblock %}

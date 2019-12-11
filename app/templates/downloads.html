@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+  <center>
+    <div class="content-section">
+      <div class="media">
+        <div class="media-body">
+          <div class="column_d">
+            <h2><a href="{{ url_for('file_handlers.download_timetables') }}"><p>Press this link to download Timetables »</p></a></h2>
+          </div>
+          <div class="column_d">
+            <h2><a href="{{ url_for('file_handlers.downloadnetworkmaps') }}"><p>Press this link to download Network Maps »</p></a></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </center>
+</html>
+{% endblock %}

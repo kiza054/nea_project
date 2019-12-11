@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+    {% block styles %}
+      {{super()}}
+      <script type="text/javascript" src="{{ url_for('static', filename='javascript/moovit.js') }}"></script>
+    {% endblock %}
+    <center>
+        <div class="content-section">
+          <div class="media">
+            <div class="media-body">
+                <div class="mv-wtp" data-metro="2109" data-lang="en" height="215px" overflow="hidden"></div>
+            </div>
+          </div>
+        </div>
+    </center>
+</html>
+{% endblock %}
