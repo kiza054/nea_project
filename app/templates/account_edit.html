@@ -2,18 +2,15 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
-    <center>
-      <div class="content-section">
-        <div class="media">
-          <div class="media-body">
-            <h1>Edit Profile</h1>
-            <div class="row">
-                <div class="col-md-4 col-lg-offset-4">
-                    {{ wtf.quick_form(form) }}
-                </div>
-            </div>
-          </div>
+<center>
+  <div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <h1>Edit Profile</h1>
+        {{ wtf.quick_form(form, submit, button_map={'submit':'success'}) }}
         </div>
       </div>
-    </center>
+    </div>
+  </div>
+</center>
 {% endblock %}

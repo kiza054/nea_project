@@ -10,8 +10,9 @@ function search_timetables() {
   for (i = 1; i < tr.length; i++) {
     // Hide the row initially.
     tr[i].style.display = "none";
-
     td = tr[i].getElementsByTagName("td");
+
+    // Allows user to search for service number \\
     for (var j = 0; j < td.length; j++) {
       cell = tr[i].getElementsByTagName("td")[1];
       if (cell) {
@@ -20,6 +21,7 @@ function search_timetables() {
           break;
         }
       }
+      // Allows user to search for operator \\
       cell2 = tr[i].getElementsByTagName("td")[2];
       if (cell2) {
         if (cell2.innerHTML.toUpperCase().indexOf(filter) > -1) {

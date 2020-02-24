@@ -3,20 +3,25 @@
 <html>
 {% block styles %}
   {{super()}}
+  <!-- Brings in Javascript that filters network maps based on search results -->
   <script type="text/javascript" src="{{ url_for('static', filename='javascript/search_filter_network_maps.js') }}"></script>
 {% endblock %}
   <center>
     <div class="content-section">
       <div class="media">
         <div class="media-body">
+          <!-- Creates search form for users to search for network maps -->
           <input class="form-control mr-sm-2" type="text" id="input01"
             onkeyup="search_network_maps()" placeholder="Find your timetable by searching the operator...">
-          <table style="100%" class="table table-borderless table-hover table-condensed" id="table01">
+          <br>
+          <!-- Creates a table that displays network maps -->
+          <table class="table table-sm" id="table01">
             <tr>
               <th scope="col">Filename</th>
               <th scope="col">Operator</th>
               <th scope="col">Download Link</th>
             </tr>
+            <!-- Jinja IF statement pulls all database entries into table -->
             {% for operator in operators %}
             <tr>
               <td>{{ operator.name }}</td>

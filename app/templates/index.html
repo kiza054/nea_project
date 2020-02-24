@@ -1,15 +1,19 @@
-{% extends "base.html" %}
+{% extends "base.html" %} <!-- Extending base template -->
+<!DOCTYPE html>
 {% block content %}
+<!-- Defines blocks that child templates can override -->
 <html>
   <center>
-    <div class="content-section">
-      <div class="media">
-        <div class="media-body">
-          <h1 class="display-4">Hi, {{ current_user.username }}</h1>
-          <h4>Welcome to the West Yorkshire Journey Planner</h4>
+        <div class="content-section">
+            <div class="media">
+                <div class="media-body">
+                    <!-- Brings in username from user variable in routes.py -->
+                    <h1 class="display-4">Hi, {{ current_user.username }}</h1>
+                    <!-- Same greeting message as before -->
+                    <h4>Welcome to the West Yorkshire Journey Planner</h4>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
   </center>
 </html>
 {% endblock %}

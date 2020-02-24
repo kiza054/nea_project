@@ -3,12 +3,14 @@
 <html>
     {% block styles %}
       {{super()}}
+      <!-- Brings in Javascript that enables moovit extension -->
       <script type="text/javascript" src="{{ url_for('static', filename='javascript/moovit.js') }}"></script>
     {% endblock %}
     <center>
         <div class="content-section">
           <div class="media">
             <div class="media-body">
+                <!-- Variables set so that Moovit defaults to the Yorkshire region -->
                 <div class="mv-wtp" data-metro="2109" data-lang="en" height="215px" overflow="hidden"></div>
             </div>
           </div>

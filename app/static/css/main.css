@@ -1,14 +1,13 @@
 @font-face {
-font-family: 'Product Sans Regular';
-font-style: normal;
-font-weight: normal;
-src: local('Product Sans Regular'), url('fonts/ProductSans-Regular.woff') format('woff');
-}
-
+    font-family: 'Product Sans Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Product Sans Regular'), url('fonts/ProductSans-Regular.woff') format('woff');
+    }
+    
 body {
     font-family: 'Product Sans Regular';
     background-color: #5CB85C;
-    /*background-image: repeating-linear-gradient(#5CB85C, #3B753B);*/
     color: #333333;
 }
 
@@ -19,7 +18,6 @@ h1, h2, h3, h4, h5, h6 {
 .hr1 {
     background-color: #5CB85C;
 }
-
 
 .bg-steel {
     background-color: #ffffff;
@@ -45,72 +43,50 @@ h1, h2, h3, h4, h5, h6 {
     background: #ffffff;
     padding: 10px 20px;
     border-radius: 3px;
+    margin-top: 40px;
     margin-bottom: 10px;
     max-width: 1200px;
 }
 
-.column {
-    margin: auto;
-    float: left;
-    width: 95%;
-}
-
-.column_2 {
-    margin: auto;
-    float: right;
-    width: 105%;
-}
-
-.html-wpsites {
-    height:35px;
-    background-color:#ffffff;
-    font-size:20px;
-    color:#000000;
-}
-
-.form-group {
-    width:250px;
-}
-
-.btn-sm {
-    padding: 1px 10px;
-}
-
-#alert {
-    max-width: 1200px;
+.alert {
+    width: 1200px !important;
     margin-top: 20px;
     margin: 0 auto;
 }
 
 #navBarSearchForm input[type=text] {
-    width:600px !important;
+    width:1077px !important;
+}
+
+#stops_error_form input[type=text] {
+    width:980px !important;
 }
 
 #input01 {
-  background-image: url('/static/images/search_icon.png'); /* Add a search icon to input */
-  background-position: 10px 5px; /* Position the search icon */
-  background-repeat: no-repeat; /* Do not repeat the icon image */
-  background-size: 24px 24px;
-  width: 100%; /* Full-width */
-  font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 1px solid #ddd; /* Add a grey border */
-  margin-bottom: 12px; /* Add some space below the input */
+    background-image: url('/static/images/search_icon.png'); /* Add a search icon to input */
+    background-position: 10px 5px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    background-size: 24px 24px;
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
 }
-
+  
 .media-body iFrame {
     height: 1000px !important;
     width: 1160px !important;
 }
 
 .column_d {
-  float: left;
-  width: 50%;
+    float: left;
+    width: 50%;
 }
 
 /* Clear floats after the columns */
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+    content: "";
+    display: table;
+    clear: both;
+}  

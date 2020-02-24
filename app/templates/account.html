@@ -1,26 +1,30 @@
-{% extends "base.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
-
+{% extends "base.html" %} <!-- Extending base template -->
+<!DOCTYPE html>
 {% block content %}
-<center>
-  <div class="content-section">
-    <div class="media">
-      <div class="media-body">
-        <img class="rounded mx-auto d-block" src="{{ user.avatar(128) }}" style="border-radius: 50%;">
-        <h2 class="account-heading">Username: {{ user.username }}</h2>
-        <p class="text-secondary">Email Address: {{ user.email }}</p>
-        {% if user == current_user %}
-        <p><a href="{{ url_for('main.credits') }}">Credits</a></p>
-        <p><a href="{{ url_for('main.edit_profile', username=current_user.username) }}">Edit your profile</a></p>
-        {% endif %}
-        {% if current_user.is_admin %}
-        <hr>
-        <p><a href="/admin">Admin Page</a></p>
-        <p><a href="/uploadnetworkmaps">Upload Network Maps</a></p>
-        <p><a href="/uploadtimetables">Upload Timetables</a></p>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-</center>
+<!-- Defines blocks that child templates can override -->
+<html>
+  <center>
+        <div class="content-section">
+            <div class="media">
+                <div class="media-body">
+                    <!-- Displays current users avatar -->
+                    <img class="rounded mx-auto d-block" src="{{ current_user.avatar(128) }}">
+                    <!-- Displays current users username -->
+                    <h2 class="display-4">Username: {{ current_user.username }}</h2>
+                    <!-- Displays current users email address -->
+                    <p>Email: {{ current_user.email }}</p>
+                    {% if user == current_user %}
+                    <p><a href="{{ url_for('main.edit_profile', username=current_user.username) }}">Edit your profile</a></p>
+                    {% endif %}
+                    {% if current_user.is_admin %}
+                    <hr>
+                    <p><a href="/admin">Admin Page</a></p>
+                    <p><a href="/uploadnetworkmaps">Upload Network Maps</a></p>
+                    <p><a href="/uploadtimetables">Upload Timetables</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+  </center>
+</html>
 {% endblock %}

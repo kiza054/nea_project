@@ -1,66 +1,88 @@
-{% extends "bootstrap/base.html" %}
 <!DOCTYPE html>
 <html>
-    {% block content %}
-    {% block title %}
-        {{ title }} | WYJP
-    {% endblock %}
     <head>
+        <!-- Defines the title that is shown as the Chrome tab title -->
+        <title>WYJP | {{ title }}</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!-- Custom CSS, JS & Favicon (Including FontAwesome) -->
         {% block styles %}
             {{ fontawesome_html() }}
-            {{ super() }}
+            <!-- Shortcut Favicon Icon -->
             <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <!-- Custom CSS -->
             <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-            <script src="https://kit.fontawesome.com/83408b1ca8.js" crossorigin="anonymous"></script>
+            <!-- FontAwesome Icons -->
+            <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
         {% endblock %}
     </head>
-    {% block navbar %}
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-steel navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{{ url_for('main.home') }}">WYJP</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{ url_for('main.home') }}"><span class="fas fa-home"></span> Home</a></li>
-                        <li><a href="{{ url_for('main.stops') }}"><span class="far fa-clock"></span> Live Timetable</a></li>
-                        <li><a href="{{ url_for('main.bus_stops') }}"><span class="fas fa-bus"></span> Bus Stops</a></li>
-                        <li><a href="{{ url_for('file_handlers.downloadspage') }}"><span class="fas fa-download"></span> Downloads</a></li>
-                        <li><a href="{{ url_for('main.moovit') }}"><span class="fas fa-map-marked-alt">
-                                                                                </span> Moovit Journey Planner</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        {% if current_user.is_anonymous %}
-                        <li><a href="{{ url_for('auth.login') }}"><span class="fas fa-sign-in-alt"></span> Login</a></li>
-                        {% else %}
-                        <li><a href="{{ url_for('main.user', username=current_user.username) }}">
-                                    <span class="fas fa-user"></span> {{ current_user.username }}</a></li>
-                        <li><a href="{{ url_for('auth.logout') }}"><span class="fas fa-sign-out-alt"></span> Logout</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
+        {% block navbar %}
+        <!-- Nav class creates a navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{{ url_for('main.home') }}">WYJP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarNavDropdown" class="navbar-collapse collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('main.home') }}"><span class="fas fa-home"></span> Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.stops') }}"><span class="far fa-clock"></span> Live Timetable</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.bus_stops') }}">Bus Stops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('file_handlers.downloads_page') }}"><span class="fas fa-download"></span> Downloads</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.moovit') }}">Moovit Journey Planner</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <!-- Checks to see if user is anonymous (not logged in) -->
+                    {% if current_user.is_anonymous %}
+                        <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
+                    </li>
+                    {% else %}
+                    <!-- If not anonymous, presents option for user to logout or view their profile -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.user', username=current_user.username) }}">
+                            <span class="fas fa-user"></span> {{ current_user.username }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                    </li>
+                    {% endif %}
+                </ul>
             </div>
         </nav>
-        <div class="container">
-            {% include "flash.html" %}
-        </div>
-        <div class="container">
-            {% include "footer.html" %}
-        </div>
         {% endblock %}
+        <br>
+        <!-- Code required for generating message flashes -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-dismissable alert-info" align="center">
+                    <a href="" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+                        {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <!-- Defines blocks that child templates can override -->
+        {% block content %}{% endblock %}
     </body>
 </html>
-{% endblock %}

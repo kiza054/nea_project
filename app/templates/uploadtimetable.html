@@ -6,17 +6,23 @@
       <div class="media">
         <div class="media-body">
           <h1>Upload Timetables Here!</h1>
+          <!-- FontAwesome icon for PDF files -->
           <span class='far fa-file-pdf' style='font-size:48px;color:#5CB85C'></span>
           <h4>PDF Files only please</h4>
             <form method="POST" action="/uploadconfirmation/timetables" enctype="multipart/form-data">
                 <div class="form-group">
+                    <!-- Form field for PDF file -->
                     <label for"inputFile"></label>
                     <input type="file" name="inputFile">
+                    <br>
+                    <!-- Form field for service number -->
                     <label for"service_number"></label>
                     <input type="text" class="form-control" placeholder="Service Number" name="service_number" autocomplete="off">
+                    <!-- Form field for operator -->
                     <label for"operator"></label>
                     <input type="text" class="form-control" placeholder="Operator" name="operator" autocomplete="off">
                 </div>
+              <!-- Button to submit form -->
               <button type="submit" class="btn btn-success">Upload <span class="fas fa-arrow-circle-up"></span></button>
             </form>
         </div>

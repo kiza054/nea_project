@@ -1,21 +1,19 @@
 {% extends "base.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
-
 {% block content %}
 <center>
   <div class="content-section">
     <div class="media">
       <div class="media-body">
         <center><h2>The stop you searched for is: {{ name }} (450{{ stop_number_str }}) - {{ locality }}</h2></center>
-        <br>
+        <br> <!-- Displays message saying which bus stop user is viewing/searched for -->
         <form method="POST" action="/live_timetable" class="form-inline my-2 my-lg-0" id="navBarSearchForm" autocomplete="off">
           <input class="form-control mr-sm-2" type="text" placeholder="Search for Stop Number (Last 5 digits fount on Stop)" name="stop_number">
-          <button class="btn btn-success">Search</button>
+          <button class="btn btn-success">Search</button> <!-- Form that allows user to search for bus stop -->
         </form>
         <table class="table">
-          <table class="table table-borderless table-hover table-condensed">
-        	<thead>
-              <tr class="table-info">
+          <table class="table table-sm">
+        	<thead> <!-- Table headings that shows live timetable headers -->
+              <tr class="table">
                   <th style="text-align: center;">Stop Name</th>
                   <th style="text-align: center;">Stop Location <!--[Coordinates]--></th>
                   <th style="text-align: center;">Line Number</th>
@@ -26,7 +24,7 @@
         	</thead>
         	<tbody>
         	  {% for item in items %}
-        	  <tr class="table-info">
+        	  <tr class="table"> <!-- Table content that shows live timetable information -->
                 <td align="center"><p> {{ name }} </p></td>
                 <td align="center"><p> {{ locality }} <!--{{ location }}--></p></td>
                 <td align="center"><p> {{ item.line_name }} </p></td>
@@ -37,7 +35,6 @@
         	  {% endfor %}
         	</tbody>
         </table>
-        <p class="text-secondary"></p>
       </div>
     </div>
   </div>

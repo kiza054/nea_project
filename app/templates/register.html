@@ -1,0 +1,22 @@
+{% extends "base.html" %} <!-- Extending base template -->
+<!-- Imports bootstrap wtf as the wtf variable -->
+{% import "bootstrap/wtf.html" as wtf %}
+<!DOCTYPE html>
+{% block content %}
+<!-- Defines blocks that child templates can override -->
+<html>
+  <center>
+        <div class="content-section">
+            <div class="media">
+                <div class="media-body">
+                    <h1>Register</h1>
+                    <!-- Renders whole register form, rather than having separate fields -->
+                    {{ wtf.quick_form(form, submit, button_map={'submit':'success'}) }}
+                    <!-- Presents user with a link to login if they have already signed up -->
+                    <br><p>Already Signed Up? <a href="{{ url_for('auth.login') }}">Click here to Login!</a></p>
+                </div>
+            </div>
+        </div>
+  </center>
+</html>
+{% endblock %}
